@@ -1,0 +1,41 @@
+{% extends "index.html" %}
+{% load static %}
+{% block ProjectManeiro_content %}
+
+{% if user.is_authenticated %}
+<h2>Listado de Cotizantes - (Ctrl-F = Busqueda)</h2>
+<!-- <a class="btn btn-azul" href="{% url 'cotizantes:cotizantes-add' %}">Crear nuevo cotizante</a> -->
+
+{% endif %}
+<hr></hr>
+<ul>{% if user.is_authenticated %}
+    {% for cotizantes in cotizantes_list %}
+    <li>
+        {{cotizantes}}
+        (
+            <a href="{% url 'cotizantes:cotizantes-detail' cotizantes.id %}">
+                <i class="fa fa-eye" style="color:greenyellow"> </i>
+            </a>
+        <!-- |
+        <a href="{% url 'cotizantes:cotizantes-update' cotizantes.id %}">
+            <i class="fa fa-pencil" style="color:gold"> </i>
+        </a>
+        |
+        <a href="{% url 'cotizantes:cotizantes-delete' cotizantes.id %}">
+            <i class="fa fa-trash" style="color:red"> </i>
+        </a> -->
+        )
+    </li>
+    {% endfor %}
+    {% else %}
+    <br>
+    <table border="1" bgcolor="darkred">
+        <thead>
+            <th><br><h2 style="color:white" >&nbsp&nbspDEBE IDENTIFICARSE COMO USUARIO&nbsp&nbsp</h2><br></th>
+        </thead>
+    </table>
+    <br>
+    {% endif %}
+</ul>
+
+{% endblock %}

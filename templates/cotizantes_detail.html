@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+{% load static %}
+{% block ProjectManeiro_content %}
+
+<h4>Detalle del Cotizante</h4>
+<hr></hr>
+<p><h6>Ente: {{ cotizantes.ente }}</h6></p>
+<p><h6>Periodo: {{ cotizantes.periodo }}</h6></p>
+<p><h6>Ficha: {{ cotizantes.ficha }}</h6></p>
+<p><h6>Nombre: {{ cotizantes.nombre }}</h6></p>
+<p><h6>DNI: {{ cotizantes.dni }}</h6></p>
+<p><h6>Reparticion: {{ cotizantes.repa }}</h6></p>
+<p><h6>Lugar de Pago: {{ cotizantes.loca }}</h6></p>
+<p><h6>Importe: {{ cotizantes.importe }}</h6></p>
+<p><h6>Detalle: {{ cotizantes.detalle }}</h6></p>
+<p><h6>Afiliado: {{ cotizantes.afiliado }}</h6></p>
+<p><a class="btn btn-azul" href="{% url 'cotizantes:cotizantes-list' %}">Regresar a la lista de cotizantes</a></p>
+{% endblock %}
